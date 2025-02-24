@@ -34,6 +34,8 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
 
     _model.detailsTextController ??= TextEditingController();
     _model.detailsFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -49,7 +51,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(24.0),
@@ -61,7 +63,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.all(24.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +93,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                     letterSpacing: 0.0,
                   ),
             ),
-            SizedBox(
+            Container(
               width: double.infinity,
               child: TextFormField(
                 controller: _model.titleTextController,
@@ -117,7 +119,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
@@ -140,7 +142,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                   filled: true,
                   fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
@@ -151,7 +153,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                     _model.titleTextControllerValidator.asValidator(context),
               ),
             ),
-            SizedBox(
+            Container(
               width: double.infinity,
               child: TextFormField(
                 controller: _model.detailsTextController,
@@ -177,7 +179,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
@@ -200,7 +202,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                   filled: true,
                   fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
@@ -231,15 +233,15 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                 Navigator.pop(context);
               },
               text: 'Add Task',
-              icon: const Icon(
+              icon: Icon(
                 Icons.add,
                 size: 30.0,
               ),
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 70.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Inter',
@@ -255,7 +257,7 @@ class _AddtaskWidgetState extends State<AddtaskWidget> {
                 borderRadius: BorderRadius.circular(24.0),
               ),
             ),
-          ].divide(const SizedBox(height: 24.0)),
+          ].divide(SizedBox(height: 24.0)),
         ),
       ),
     );
